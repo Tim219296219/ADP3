@@ -8,3 +8,5 @@ C300       Ivana.B    Withew          1998-07-16           23
 C250       Eileen     Sideways        1999-11-27           22        
 C260       Ima        Stewpidas       2001-01-27           20        
 ================================================================
+Number of customers who can rent: 4
+Number of customers who cannot rent: 2

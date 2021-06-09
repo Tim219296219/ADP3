@@ -5,6 +5,7 @@
  */
 package za.ac.cput.createstakeholder;
 
+import java.io.BufferedWriter;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
@@ -108,8 +109,15 @@ public class Main {
                 pw.write(String.format("%-10s %-10s %-15s %-20s %-10d\n", cList.get(i).getStHolderId(), cList.get(i).getFirstName(), cList.get(i).getSurName(), cList.get(i).getDateOfBirth(), age[i]));
             }
             pw.write(String.format("%s\n", "================================================================"));
-            
-            
+            int canR = 0;
+            int cannotR = 0;
+            for(int i = 0; i < cList.size(); i++){
+                if(cList.get(i).getCanRent() == true) {
+                    canR++;
+                } else { cannotR++; }
+            }
+            pw.write("Number of customers who can rent: " +canR +"\n");
+            pw.write("Number of customers who cannot rent: " +cannotR +"\n");
             
             pw.close();
         }
@@ -117,6 +125,29 @@ public class Main {
             System.out.println("error writing to file");
         }
     }
+    
+    //Write to Supplier file 
+    public void writeToSupplier() {
+        try {
+            fw = new FileWriter("supplierOutFile.txt");
+            BufferedWriter bw = new BufferedWriter(fw);
+            
+            bw.write(String.format("%s\n", "===============================[ Supplier ]==============================="));
+            bw.write(String.format("%-10s %-15s %-20s %-20s\n", "ID", "Name", "Product Type", "Description"));
+            bw.write(String.format("%s\n", "========================================================================="));
+            
+            for(int i = 0; i < sList.size(); i++){
+                
+            bw.write(String.format("%-10s %-15s %-20s %-20s\n", sList.get(i).getStHolderId(), sList.get(i).getName(), sList.get(i).getProductType(), sList.get(i).getProductDescription()));
+            }
+            
+            bw.close();
+        }
+        catch(IOException ex) {
+            System.out.println("error writing to file");
+        }
+    }
+    
 }
 
      

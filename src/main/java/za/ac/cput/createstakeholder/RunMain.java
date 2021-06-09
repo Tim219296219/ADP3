@@ -15,5 +15,6 @@ public class RunMain {
         main.readingTheFile();
         main.getAge();
         main.writeCustomerFile();
+        main.writeToSupplier();
     }
 }
